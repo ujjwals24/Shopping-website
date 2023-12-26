@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            background-color: #FFCCBC;
+        }
+        #signup{
+           margin: auto;
+            width: 350px;
+            height: 300px;
+            margin-top: 150px;
+            background-color: turquoise;
+            padding-top: 15px;
+            text-align: center;
+        }
+        #email,#password,#name{
+            font-size: 17px;
+            display: block;
+            margin: auto;
+            width: 300px;
+            margin-top: 5px ;
+            padding: 7px 10px;
+        }
+        
+        #submit{
+            margin-top: 10px;
+        }
+        .signup_option{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="signup">
+        <h2>Create an Account</h2>
+        <form>
+          <input type="text" placeholder="Enter name" id="name">
+          <input type="email" placeholder="Enter email" id="email">
+          <input type="password" placeholder="Enter password" id="password">
+          <div>
+            <input type="submit" value="SIGN UP" id="submit"/>
+        </div>
+        
+        <div class="signup_option">
+            <a href="signin.html">Already have an account?Please Log In</a>
+        </div>
+    </form>
+      </div>
+</body>
+<script>
+    let form = document.querySelector("form");
+
+let signupData=JSON.parse(localStorage.getItem("signup")) || [];
+
+form.addEventListener("submit", function(event){
+        event.preventDefault();
+
+        let obj={
+            name:form.name.value,
+            email:form.email.value,
+            password:form.password.value,
+            
+        }
+        if(obj.name == "" || obj.email== "" || obj.password == ""){
+            alert("Felid Empty")   
+            return
+        }else{
+          alert("SignUP Completed")
+        }
+
+
+        signupData.push(obj);
+        localStorage.setItem("signup", JSON.stringify(signupData));
+      });
+</script>
+</html>

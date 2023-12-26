@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #FFCCBC;
+        }
+        #signin{
+           margin: auto;
+            width: 350px;
+            height: 300px;
+            margin-top: 150px;
+            background-color: #84FFFF;
+            padding-top: 15px;
+            text-align: center;
+        }
+        #email,#password{
+            font-size: 17px;
+            display: block;
+            margin: auto;
+            width: 300px;
+            margin-top: 5px ;
+            padding: 7px 10px;
+        }
+        #forgot{
+            margin-top: 10px;
+
+        }
+        #submit{
+            margin-top: 10px;
+        }
+        .signup_option{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="signin">
+        <h2>Login to your Account</h2>
+
+        <form>
+            <input  id="email" type="" placeholder="Email">
+            <input type="password" id="password" placeholder="password">
+            <div><div id="forgot">
+                <a href="">Forgot password?</a>
+            </div>
+            <div>
+                <input type="submit" value="LOG IN" id="submit"/>
+            </div>
+            </div>
+            <div class="signup_option">
+                <a href="signup.html">Don't have an account? Please Sign Up</a>
+            </div>
+            
+           
+      </form>
+    </div>
+    
+   
+</body>
+<script>
+    let form = document.querySelector("form");
+
+let signupData= JSON.parse(localStorage.getItem("signup")) || [];
+
+form.addEventListener("submit",function(event){
+    event.preventDefault();
+    if(signupData.length === 0){
+        alert("No user Exist");
+        return;
+    } 
+
+    let obj={
+        email:form.email.value,
+        password:form.password.value,
+    }
+
+    let islogin=false;
+    signupData.forEach(function(element){
+        if(element.email===obj.email && element.password===obj.password){
+            islogin=true;
+            localStorage.setItem("signup", JSON.stringify(element));
+            alert("Succesfully Login");
+            window.location.href="index.html";
+        }
+    });
+
+   if(islogin===false){
+    alert("not succesfull");
+   }
+});
+</script>
+</html>

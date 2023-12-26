@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="cart.html">
+    
+    <title>Furniture Fly</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+  />
+  
+</head>
+<body>
+    <div id="nav">
+        <div id="logo">
+           <a href="file:///C:/Users/user/Downloads/shopping-website-clone/index.html"><img src="data:image/jpeg;base64,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" alt=""></a>
+        </div>
+        <div id="filter">
+          <select>
+            <option value="">Choose city</option>
+            <option value="">Ghaziabad</option>
+            <option value="">Delhi</option>
+            <option value="">Noida</option>
+            <option value="">Mumbai</option>
+          </select>
+        </div>
+        <div id="search">
+            <input type="text" placeholder="search for products">
+        </div>
+        <div id="cart">
+            <div ><a href="cart.html"><h3>Cart</h3>
+            </a></div>
+
+        </div>
+        <a href="signin.html"><div id="button">
+          <button>Login/Signup</button>
+        </div></a>
+
+    </div>
+
+    
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="image/AC-Offer-Banner-Web-.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image/ss3.jpg" alt=""></div>
+          <div class="swiper-slide"> <img src="image/ss 2.png" alt=""></div>
+          <div class="swiper-slide"> <img src="image/Paytm-Bank-Desktop-banner-.jpg" alt=""></div>
+          
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+  
+
+    <div id="header">
+       <div><img src="image/package2.png" alt="">
+        <h3>Packages</h3>
+    </div>
+
+        <div><img src="image/furniture.png" alt="">
+            <h3>Furniture</h3>
+        </div>
+
+        <div><img src="image/app.png" alt="">
+            <h3>Appliances</h3>
+        </div>
+
+        <div><a href="electronics.html"><img src="image/phone.png" alt="">
+            <h3>Electronics</h3></a>
+        </div>
+
+        <div><img src="image/fitness.png" alt="">
+            <h3>Fitness</h3>
+        </div>
+
+        <div><img src="image/WFH.png" alt="">
+            <h3>WFH Essentials</h3>
+        </div>
+    </div>
+<div id="max">
+   
+        <div id="text">
+            <h3>You'll love to</h3>
+            <h3>take these homes</h3>
+        </div>
+   
+
+    <div id="line">
+               <div>
+                   <img src="image/1.jpg" alt="">
+                   <h4>Saddle shoe Rack large</h4>
+                   <p>rent</p>
+                   <p>$ 189/mo</p>
+                   <button>See More</button>
+               </div>
+            
+                <div>
+                    <img src="image/2.jpg" alt="">
+                    <h4>Stowy 2-door Wardrobe</h4>
+                    <p>rent</p>
+                    <p>$ 189/mo</p>
+                    <button>See More</button>
+                </div>
+                
+                <div>
+                     <img src="image/3.jpg" alt="">
+                    <h4>Miller Office Chair</h4>
+                    <p>rent</p>
+                    <p>$ 189/mo</p>
+                    <button>See More</button>
+                </div>
+                
+                <div>
+                    <img src="image/4.jpg" alt="">
+                    <h4>Moris Office Chair</h4>
+                    <p>rent</p>
+                    <p>$ 189/mo</p>
+                    <button>See More</button>
+                </div>
+
+
+    </div>
+
+</div>
+
+  <div id="mid">
+       <div id="section">
+          <h2>There's more</h2>
+          <h2>to renting</h2>
+        </div>
+  
+        <div id="display">
+            <div>
+              <img src="image/bed.png" alt="">
+              <h2>Finest-quality products</h2>
+              <p>
+                Quality matters to you, and us! That's why we do a strict quality-check for every product.
+              </p>
+            </div>
+
+         <div>
+            <img src="image/location.png" alt="">
+            <h2> Free relocation</h2>
+            <p>
+                Changing your house or even your city? We'll relocate your rented products for free.
+            </p>
+         </div>
+
+         <div>
+            <img src="image/maintaince.png" alt="">
+            <h2>Free maintenance</h2>
+            <p>
+                Keeping your rented products in a spick and span condition is on us, so you can sit back and relax.
+            </p>
+         </div>
+
+         <div>
+            <img src="image/chair.png" alt="">
+            <h2>Cancel anytime</h2>
+            <p>Pay only for the time you use the product and close your subscription without any hassle.
+            </p>
+         </div>
+
+         <div>
+            <img src="image/bed2.png" alt="">
+            <h2>Easy return on delivery</h2>
+            <p>If you don't like the product on delivery, you can return it right away—no questions asked.
+            </p>
+         </div>
+
+         <div>
+            <img src="image/phone1.png" alt="">
+            <h2>Keep upgrading</h2>
+            <p>
+                Bored of the same product? Upgrade to try another, newer design and enjoy the change!
+            </p>
+        </div>
+           </div>
+             <button>Know More</button>
+            </div>
+    </div>  
+
+
+    <div id="footer">
+
+        <div>
+            
+            <h3 id="top">Furniture Fly</h3>
+            <h4>About Us</h4>
+            <h4>Culture</h4>
+            <h4>Investors</h4>
+            <h4>Careers</h4>
+            <h4>Contact</h4>
+            <h4>Our Benefits</h4>
+            <h4>Sitemap</h4>
+        
+        </div>
+
+        <div>
+            
+            <h3 id="top1">Information</h3>
+            <h4>Blog</h4>
+            <h4>FAQs</h4>
+            <h4>Documents Required</h4>
+            
+        </div>
+
+        <div>
+            
+                <h3 id="top2">POLICIES
+                </h3>
+                <h4>Shipping Policy</h4>
+                <h4>Cancellation & Return</h4>
+                <h4>Privacy Policy </h4>
+                <h4>Rental Terms & Conditions</h4>
+                <h4>Referral Terms & Conditions</h4>
+            
+        </div>
+
+        <div>
+            
+                <h3 id="top3">NEED HELP ?
+            </h3>
+                <h4><input type="text" placeholder="Chat with us(9AM - 6PM)"></h4>
+                <h4>@furniturefly</h4>
+                <h4>DOWNLOAD APP</h4>
+                <img id="first" src="image/aaaaaaa2.jpg" alt="">
+            
+        </div>
+    </div>
+    <div id="line">
+        <h4>© 2022. Edunetwork Pvt. Ltd.</h4>
+    </div>
+ </body>  
+ <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+</html>

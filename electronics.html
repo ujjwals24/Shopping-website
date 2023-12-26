@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nav{
+display: flex;
+justify-content: space-between;
+height: 60px;
+align-items: center;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+margin-left: 60px;
+margin-right: 60px;
+padding-left: 30px;
+padding-right: 30px;
+position: -webkit-sticky;
+
+}
+#logo{
+    width: 150px;
+    height: 60px;
+}
+#logo img{
+    width: 80%;
+    height: 60px;
+}
+#electronics_container{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+}
+img{
+    width: 100%;
+ }
+ #footer{
+    display: flex;
+    background-color: #EEEEEE;
+    gap: 150px;
+    padding-top: 50px;
+    padding-left: 60px;margin-top: 30px;
+    
+}
+#top ,#top1,#top2,#top3{
+font-size: 14px;
+font-family: muli,sans-serif;
+line-height: 15px;
+font-weight: 600;
+text-decoration: none solid rgb(49, 49, 49);
+text-transform: uppercase;
+}
+#footer h4{
+    font-family: muli,sans-serif;
+    font-size: 12px;
+    text-decoration: underline solid rgb(113, 113); 
+    line-height: 18px;
+}
+#first{
+    margin-top: 5px;
+}
+#line{
+    font-family: muli,sans-serif;
+    font-size: 12px;
+    background-color: #EEEEEE;width: 1370px;
+}
+#line h4{
+    display: block;
+    padding-left: 60px;
+    margin-top: 50px;
+}
+</style>
+</head>
+<body>
+    <div id="nav">
+        <div id="logo">
+           <a href="file:///C:/Users/admin/OneDrive/Desktop/-erratic-waves-7252/index.html"><img src="image/f.jpg" alt=""></a>
+        </div>
+        <div id="filter">
+          <select>
+            <option value="">Choose city</option>
+            <option value="">Ghaziabad</option>
+            <option value="">Delhi</option>
+            <option value="">Noida</option>
+            <option value="">Mumbai</option>
+          </select>
+        </div>
+        <div id="search">
+            <input type="text" placeholder="search for products">
+        </div>
+        <div id="cart">
+            <div ><a href=""><h3>Cart</h3>
+            </a></div>
+
+        </div>
+        <div id="button">
+          <button>Login/Signup</button>
+        </div>
+
+    </div>
+    <select id="filter">
+        <option value="">Filter By Category</option>
+        <option value="Laptop">Laptop</option>
+        <option value="Mobile">Mobile</option>
+        <option value="Speakers">Speakers</option>
+      </select>
+
+    <div id="electronics_container"></div>
+
+    <!-- footer -->
+
+
+    <div id="footer">
+
+        <div>
+            
+            <h3 id="top">Furniture Fly</h3>
+            <h4>About Us</h4>
+            <h4>Culture</h4>
+            <h4>Investors</h4>
+            <h4>Careers</h4>
+            <h4>Contact</h4>
+            <h4>Our Benefits</h4>
+            <h4>Sitemap</h4>
+        
+        </div>
+
+        <div>
+            
+            <h3 id="top1">Information</h3>
+            <h4>Blog</h4>
+            <h4>FAQs</h4>
+            <h4>Documents Required</h4>
+            
+        </div>
+
+        <div>
+            
+                <h3 id="top2">POLICIES
+                </h3>
+                <h4>Shipping Policy</h4>
+                <h4>Cancellation & Return</h4>
+                <h4>Privacy Policy </h4>
+                <h4>Rental Terms & Conditions</h4>
+                <h4>Referral Terms & Conditions</h4>
+            
+        </div>
+
+        <div>
+            
+                <h3 id="top3">NEED HELP ?
+            </h3>
+                <h4><input type="text" placeholder="Chat with us(9AM - 6PM"></h4>
+                <h4>@furniturefly</h4>
+                <h4>DOWNLOAD APP</h4>
+                <img id="first" src="image/aaaaaaa2.jpg" alt="">
+            
+        </div>
+    </div>
+    <div id="line">
+        <h4>© 2022. Edunetwork Pvt. Ltd.</h4>
+    </div>
+    
+</body>
+<script>
+    let url = "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products"
+    let container = document.getElementById("electronics_container");
+    let filterSelect = document.getElementById("filter");
+
+    let fetchedData = [];
+
+    filterSelect.addEventListener("change",() =>{
+      let filtered = fetchedData.filter((element) =>{
+        if(element.category === filterSelect.value){
+          return true;
+        }else{
+          return false;
+        }
+      })
+      displayElectronics(filtered);
+      
+    })
+
+    fetch("https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products")
+    .then((responseObject) =>{
+      return responseObject.json();
+    })
+    .then((acctualData) =>{
+       fetchedData = acctualData.data;
+      displayElectronics(acctualData.data);
+
+    })
+    .catch((error) =>{
+      console.log(error);
+    })
+
+
+   
+    function displayElectronics(data) {
+      container.innerHTML = null;
+      data.forEach((element) => {
+        let card = document.createElement("div");
+          let image = document.createElement("img");
+          image.setAttribute("src",element.img);
+
+          let brand = document.createElement("h2");
+          brand.innerText = element.brand;
+
+          let price = document.createElement("h3");
+          price.innerText = element.price;
+
+          let details = document.createElement("p");
+          details.innerText = element.details;
+
+          let category = document.createElement("p");
+          category.innerText = element.category;
+
+          let addToCart = document.createElement("button");
+          addToCart.innerText = "Add To Cart";
+
+          addToCart.addEventListener("click",() =>{
+            let cartData = JSON.parse(localStorage.getItem("cart"));
+
+            if(cartData === null) cartData = [];
+
+            let isAdleadyInCart = false;
+            for(let i=0;i<cartData.length;i++){
+              if(cartData[i].id === element.id){
+                isAdleadyInCart = true;
+                break;
+              };
+            }
+
+            if(isAdleadyInCart === true){
+              alert("Product Already in Cart");
+            }else{
+            cartData.push({element,quantity:1});
+            localStorage.setItem("cart",JSON.stringify(cartData));
+            alert("Product Added To Cart");
+            }
+          })
+
+        card.append(image,brand,price,details,category,addToCart);
+        container.append(card);
+      });
+    }
+
+
+</script>
+</html>
